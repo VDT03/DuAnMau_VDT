@@ -15,7 +15,7 @@ $act = $_GET['act'] ?? '/';
 
 match($act){
     '/' => Home_Index(),
-    'dssp' => 'Đây là danh sách sản phẩm',
+    'user-detail' => UserDetail($_GET['id']),
 };
 
 require_once './commons/disconnect-db.php';
