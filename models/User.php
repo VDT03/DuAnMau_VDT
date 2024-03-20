@@ -14,4 +14,20 @@ function Get_All_User(){
     }
 }
 
+function Get_User_By_Id($id){
+    try{
+        $sql = 'SELECT * FROM users WHERE id = :id';
+
+        $stmt = $GLOBALS['conn']->prepare($sql);
+
+        $stmt->bindParam(':id', $id);
+
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }catch(\Exception $e){
+        debug($e);
+    }
+}
+
 ?>
